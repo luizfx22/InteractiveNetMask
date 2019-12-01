@@ -1,17 +1,18 @@
 from utils.utils import getClass, getDefaultMask
 
-ip = "192.168.0.0"
-host = 50
+ip = str(input("Digite o IP: "))
+
+getClass(ip)
 
 splittedIP = [_ for _ in ip.split('.')]
+
+ipPrefix = ".".join(splittedIP[:3]) + '.'
 
 mask = str(input("Digite a máscara desejada: "))
 
 splittedMASK = [int(_) for _ in mask.split('.')]
 
 splittedA = '.'.join("{0:<08b}".format(splittedMASK[3])).split('.')
-
-print(splittedA)
 
 bitT = 0
 bitZ = 0
@@ -26,31 +27,27 @@ numHost = (2**bitZ) - 2
 
 redeEnds = []
 broads = []
-
+print()
 print("Número de redes:", numRedes)
 print("Número de hosts:", numHost)
+print()
 
-lastBroad = 0
+lastBroadcast = 0
+redeAtual = 0
+
+redes = []
 
 for _ in range(numRedes):
-    if splittedIP[3] == str(0):
-        ipTgds = ".".join(splittedIP)
-        redeEnds.append(ipTgds)
-    
-    splittedIP_ = ip.split('.')
-    splittedIP_.pop()
 
-    brdcst = 1 + numRedes + lastBroad # Broadcast
-    network = brdcst + 1
-    lastBroad
-    print(brdcst)
+    redeAtual = lastBroadcast + 1
 
-    splittedIP_.append(str())
-    
-    ipTgds = ".".join(splittedIP_)
+    broadcastAtual = 1 + numHost + lastBroadcast
 
-    redeEnds.append(ipTgds)
+    lastBroadcast = broadcastAtual + 1
 
+    print()
+    print("Rede:", redeAtual - 1)
+    print("Broadcast:", broadcastAtual)
+    print()
 
-# print("Endereços de rede:", redeEnds)
-# print("Endereços de brds:", broads)
+    # print(endereco)
