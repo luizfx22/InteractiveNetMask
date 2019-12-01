@@ -32,22 +32,24 @@ print("Número de redes:", numRedes)
 print("Número de hosts:", numHost)
 print()
 
-lastBroadcast = 0
+ultimoBroadcast = 0
 redeAtual = 0
 
 redes = []
 
 for _ in range(numRedes):
 
-    redeAtual = lastBroadcast + 1
+    redeAtual = ultimoBroadcast + 1
 
-    broadcastAtual = 1 + numHost + lastBroadcast
+    broadcastAtual = 1 + numHost + ultimoBroadcast
 
-    lastBroadcast = broadcastAtual + 1
+    ultimoBroadcast = broadcastAtual + 1
+
+    redeAtual -= 1
 
     print()
-    print("Rede:", redeAtual - 1)
-    print("Broadcast:", broadcastAtual)
+    print("Rede:", ipPrefix + str(redeAtual))
+    print("Broadcast:", ipPrefix + str(broadcastAtual))
     print()
 
     # print(endereco)
