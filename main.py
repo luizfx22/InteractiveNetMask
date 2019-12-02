@@ -1,4 +1,4 @@
-from utils.utils import getClass, getDefaultMask, getMaskFromSlash
+from utils.utils import getMaskFromSlash
 
 ip = str(input("Digite o IP: "))                                                    # Usuário insere o ip
 mask = str(input("Digite o barramento desejado: "))                                 # Usuário insere o barramento /24, /26, etc
